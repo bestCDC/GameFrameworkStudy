@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-namespace GameFramework
+namespace GameFramework.Base.ReferencePool
 {
     public static partial class ReferencePool
     {
@@ -25,6 +24,7 @@ namespace GameFramework
                 m_ReleaseReferenceCount = 0;
                 m_AddReferenceCount = 0;
                 m_RemoveReferenceCount = 0;
+                m_ReleaseReferenceCount = 0;
             }
 
             public Type ReferenceType
@@ -59,6 +59,14 @@ namespace GameFramework
                 }
             }
 
+            public int ReleaseReferenceCount
+            {
+                get
+                {
+                    return m_ReleaseReferenceCount;
+                }
+            }
+
             public int AddReferenceCount
             {
                 get
@@ -79,8 +87,7 @@ namespace GameFramework
             {
                 if (typeof(T) != m_ReferenceType)
                 {
-                    // throw new GameFrameworkException("Type is invalid");
-                    return new T();
+                    throw new GameFrameworkException("Type is invalid");
                 }
 
                 m_UsingReferenceCount++;
@@ -123,7 +130,7 @@ namespace GameFramework
                 {
                     if (m_EnableStrictCheck && m_References.Contains(reference))
                     {
-                        throw new Exception();
+                        throw new GameFrameworkException("The reference has been released.");
                     }
                 }
                 
@@ -137,7 +144,7 @@ namespace GameFramework
             {
                 if (typeof(T) != m_ReferenceType)
                 {
-                    throw new Exception();
+                    throw new GameFrameworkException("Type is invalid.");
                 }
 
                 lock (m_References)

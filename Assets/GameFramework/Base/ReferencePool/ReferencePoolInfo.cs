@@ -1,16 +1,13 @@
 using System;
-using System.Collections.Generic;
-using UnityEngine;
 using System.Runtime.InteropServices;
-using UnityEngine.UI;
 
-namespace GameFramework
+namespace GameFramework.Base.ReferencePool
 {
     /// <summary>
     /// 引用池信息。
     /// </summary>
     [StructLayout(LayoutKind.Auto)] // 内存布局方式
-    public struct ReferencePoolInfo
+    public readonly struct ReferencePoolInfo
     {
         private readonly Type m_Type;
         private readonly int m_UnusedReferenceCount;

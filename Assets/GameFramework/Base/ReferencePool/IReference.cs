@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-namespace GameFramework
+namespace GameFramework.Base.ReferencePool
 {
     /// <summary>
     /// 引用接口
