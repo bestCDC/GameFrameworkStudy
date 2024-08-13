@@ -11,7 +11,7 @@ namespace GameFramework.Fsm
     // {
     //     private T m_Owner;
     //     private readonly Dictionary<Type, FsmState<T>> m_States;
-    //     private Dictionary<string, Variable> m_Datas;
+    //      private Dictionary<string, Variable> m_Datas;
     // }    
 }
 

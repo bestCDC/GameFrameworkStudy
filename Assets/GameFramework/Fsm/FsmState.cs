@@ -32,7 +32,7 @@ namespace GameFramework.Fsm
         /// <param name="fsm">有限状态机引用</param>
         protected internal virtual void OnInit(IFsm<T> fsm)
         {
-
+        
         }
 
         /// <summary>
